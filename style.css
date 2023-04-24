@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eaeaea;
+}
+
+h1,
+p {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+}
+
+/* button styles */
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #666;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#export-btn {
+  background-color: green;
+}
+
+#clear-btn {
+  background-color: red;
+}
+
+input[type="range"] {
+  margin: 0 10px;
+  width: 50%; /* update width to 50% */
+  height: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: -5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: -5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-progress {
+  height: 10px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* file name input styles */
+#file-name {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  flex-grow: 1; /* add this line */
+}
+
+#file-name:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* color picker styles */
+input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+input[type="color"]::-moz-focus-inner {
+  border: 0;
+}
+
+input[type="color"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* color picker icon styles */
+#color-picker {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  #controls {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+  #file-name {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  canvas {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+
+#red-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
+  /* background-color: red; */
+}
+
+.drawhere {
+  font-size: 70px;
+  text-align: center;
+  background: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.fade-out {
+  animation: fade-out 0.5s ease forwards;
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
